@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "16.17.0"
+  },
   "dependencies": {
     "alert": "^5.1.1",
     "body-parser": "^1.20.0",
