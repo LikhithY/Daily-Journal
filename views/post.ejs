@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+
+
+<div class="postsPage">
+
+  <h1 style="text-align: center; text-decoration-line: underline;
+  text-decoration-thickness: 2px; font-family: Serif"><%=title%></h1>
+  <p class="postParagraph"><%=content%></p>
+  <p class="content time-stamp">
+    Posted on: <%=date%>
+    </p>
+
+</div>
+<div class="col-lg-6 col-md-6 edit">
+    <a href="/edit/<%=requestedPostId%>">
+    <button type="submit" class="edit-button btn-lg" name="editedPost" value="<%=requestedPostId%>">
+      <i class="fa-solid fa-pen-to-square"></i></button></a>
+</div>
+<div class="col-lg-6 col-md-6 delete">
+  <form action="/delete" method="post">
+    <button type="submit" class="delete-button btn-lg" name="deletedPost" value="<%=requestedPostId%>" onChange="this.form.submit()">
+      <i class="fa-solid fa-trash-can"></i></button>
+  </form>
+</div>
+
+<div class="footer-padding"></div>
+<div class="footer">
+  <p>Copyright © 2022 </p>
+</div>
+</div>
+</body>

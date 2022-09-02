@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+
+<div class="postsPage">
+  <% if( posts.length==0){ %>
+  <div style="text-align: center; color:#CFD2CF;"> <h2><em>No posts yet, Let's compose one!</em></h2></div>
+  <% } %>
+
+  <% posts.forEach(function(post){  %>
+    <h2 style="font-family: Serif"> <%= post.title %> </h2>
+    <p> <%= post.content.substring(0, 100)+ "..." %>
+    <a href="/postedItems/<%=post._id%>">Read More</a>
+    </p>
+  <%  }); %>
+</div>
+
+
+<div class="footer-padding"></div>
+<div class="footer">
+  <p>Copyright © 2022 </p>
+</div>
+</div>
+</body>
