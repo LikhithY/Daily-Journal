@@ -26,7 +26,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.authenticate('session'));
 
-mongoose.connect("mongodb://localhost:27017/usersDB", {useNewUrlParser: true});
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true});
 
 const userSchema = new mongoose.Schema({
   email: String,
