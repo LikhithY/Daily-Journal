@@ -54,8 +54,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "https://vast-stream-95984.herokuapp.com/auth/google/home",
   userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
