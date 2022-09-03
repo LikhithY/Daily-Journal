@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const { check } = require('express-validator');
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -66,10 +65,6 @@ function(accessToken, refreshToken, profile, cb){
 }
 ));
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
-// mongoose.createConnection("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
-
 const postSchema = new mongoose.Schema({
   title: String,
  content: String,
@@ -78,8 +73,6 @@ const postSchema = new mongoose.Schema({
 });
 
 const Post = new mongoose.model("Post", postSchema);
-
-// let navArr = [];
 
 // login related routes and authentication //
 app.get("/login", function(req, res) {
