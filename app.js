@@ -83,7 +83,11 @@ const Post = new mongoose.model("Post", postSchema);
 
 // login related routes and authentication //
 app.get("/login", function(req, res) {
-  res.render("login");
+  const response = {
+    title:"Login",
+    error:req.query.error
+  }
+  res.render("login", response);
 });
 
 app.get("/auth/google",
@@ -107,7 +111,7 @@ app.post("/login", function(req, res){
    if (err) {
      console.log(err);
    } if (!user) {
-     errors.push({ msg: "This email has not been registered" });
+     errors.push({ msg: "This email has not been registered." });
      res.render("login", { errors });
    }
    else {
@@ -116,7 +120,7 @@ app.post("/login", function(req, res){
           errors.push({ msg: err.message });
           res.render("login", {errors});
         } else {
-          passport.authenticate("local", { failureRedirect: '/login' })(req, res, function(){
+          passport.authenticate("local", { failureRedirect: '/login?error=true' })(req, res, function(){
           res.redirect("/home");
           });
         }
@@ -152,7 +156,7 @@ app.post("/signup", function (req, res) {
         } else
         {
           passport.authenticate("local")(req, res, function () {
-            res.render("login", {success: "successfully signedup, Login to continue."});
+            res.render("login", {success: "Successfully Signedup, Login to continue."});
           });
         }
       });

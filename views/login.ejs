@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Daily Journal</title>
+  <link rel="icon" href="/assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -40,14 +41,16 @@
 
     <% if(typeof errors != 'undefined'){ %>
     <% errors.forEach(function(error){ %>
-    <div class="alert-button"><%= error.msg %></div>
+    <div class="alert-button" style = "text-align: center"><strong><%= error.msg %></strong></div>
     <% }); %>
     <% } %>
-    <% if(typeof msg != 'undefined'){ %>
-    <div class="alert-button"><%= msg %></div>
+    <% if(typeof error != 'undefined'){ %>
+    <div class="alert-button" style = "text-align: center"><strong>
+      username or password is incorrect.
+    </strong></div>
     <% }; %>
     <% if(typeof success != 'undefined'){ %>
-    <div class="alert-button"><%= success %></div>
+    <div class="alert-button" style = "text-align: center"><strong><%= success %></strong></div>
     <% }; %>
 
     <div class="form-floating">
